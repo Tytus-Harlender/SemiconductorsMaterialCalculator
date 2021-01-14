@@ -11,7 +11,6 @@ namespace SemiconductorMaterialsCalculator
         {
             InitializeComponent();
         }
-
         private void CreateButton_Click(object sender, EventArgs e)
         {
             List<int> inputParametersList = GetParameters();
@@ -23,13 +22,11 @@ namespace SemiconductorMaterialsCalculator
                 FillChart(cartesianChart1, arguments, values);
             }
         }
-
         private void FillChart(CartesianChart chartToFill, List<double> arguments, List<double> values)
         {
             ChartSeriesCreator seriesCreator = new ChartSeriesCreator(arguments, values);
             seriesCreator.FillChartwithSeries(chartToFill);
         }
-
         private List<int> GetParameters()
         {
             List<int> parametersList = new List<int>();
