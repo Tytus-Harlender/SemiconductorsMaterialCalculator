@@ -60,6 +60,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BowingSpectrum.cs" />
     <Compile Include="ChartCalculator.cs" />
     <Compile Include="ChartSeriesCreator.cs" />
     <Compile Include="CollectionTypeConverter.cs" />
@@ -69,6 +70,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GivenParameterSpectrum.cs" />
+    <Compile Include="Interpolator.cs" />
+    <Compile Include="ListOfBowingSpectrums.cs" />
+    <Compile Include="ListOfParametersSpectrums.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
