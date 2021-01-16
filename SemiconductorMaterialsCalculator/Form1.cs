@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using LiveCharts.WinForms;
 
 namespace SemiconductorMaterialsCalculator
 {
@@ -13,40 +11,33 @@ namespace SemiconductorMaterialsCalculator
         }
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            List<int> inputParametersList = GetParameters();
-            if (inputParametersList.Count==2)
+            InputValues inputParameters = new InputValues(domainUpDown1, domainUpDown2);
+            
+            if (inputParameters.InputValuesList.Count==2)
             {
-                ChartCalculator newChartCalculator = new ChartCalculator(inputParametersList);
+                ChartCalculator newChartCalculator = new ChartCalculator(inputParameters.InputValuesList);
                 var arguments = newChartCalculator.ArgumentsOfChart;
                 var values = newChartCalculator.ValuesOfChart;
-                FillChart(cartesianChart1, arguments, values);
+                ChartDraughtsClass chartPainter = new ChartDraughtsClass();
+                chartPainter.FillChart(cartesianChart1, arguments, values);
             }
         }
-        private void FillChart(CartesianChart chartToFill, List<double> arguments, List<double> values)
+        private void InterpolateButton_Click(object sender, EventArgs e)
         {
-            ChartSeriesCreator seriesCreator = new ChartSeriesCreator(arguments, values);
-            seriesCreator.FillChartwithSeries(chartToFill);
-        }
-        private List<int> GetParameters()
-        {
-            List<int> parametersList = new List<int>();
-            if (int.TryParse(domainUpDown1.Text, out int result1))
+            InputValues inputParameters = new InputValues(xGaInAsSbDomain, yGaInAsSbDomain);
+
+            if (!inputParameters.InputValuesList.Contains(0))
             {
-                parametersList.Add(result1);
+                var x = inputParameters.InputValuesList[0];
+                var y = inputParameters.InputValuesList[1];
+                BandStructureParametersNames paramNames = new BandStructureParametersNames();
+                foreach (var paramName in paramNames.ListOfBandStructureParameters)
+                {
+                    Interpolator interpolator = new Interpolator(paramName);
+                    var outcome = interpolator.InterpolateFourElements(x, y);
+                    MessageBox.Show($"{paramName}:{outcome.ToString()}");
+                }
             }
-            else
-            {
-                MessageBox.Show("Please check parameter a value!");
-            }
-            if (int.TryParse(domainUpDown2.Text, out int result2))
-            {
-                parametersList.Add(result2);
-            }
-            else
-            {
-                MessageBox.Show("Please check parameter b value!");
-            }
-            return parametersList;
         }
     }
 }
