@@ -6,7 +6,7 @@ namespace SemiconductorMaterialsCalculator
     {
         public List<double> ArgumentsOfChart { get; set; }
         public List<double> ValuesOfChart { get; set; }
-        public ChartCalculator(List<int> inputParameters)
+        public ChartCalculator(List<double> inputParameters)
         {
             var usedDomaine = DefineXDomaine(0, 20, 21);
             var usedValues = CalculateListOfValues(usedDomaine, inputParameters[0], inputParameters[1]);
@@ -14,7 +14,7 @@ namespace SemiconductorMaterialsCalculator
             ValuesOfChart = usedValues;
 
         }
-        public List<double> CalculateListOfValues(List<double> givenDomain, int param1, int param2)
+        public List<double> CalculateListOfValues(List<double> givenDomain, double param1, double param2)
         {
             List<double> valuesOfY = new List<double>();
             foreach (double i in givenDomain)

@@ -5,26 +5,55 @@ namespace SemiconductorMaterialsCalculator
 {
     public class InputValues
     {
-        public List<int> InputValuesList { get; set; }
-        public InputValues(DomainUpDown domain1, DomainUpDown domain2)
+        public List<double> InputValuesList { get; set; }
+        public InputValues(NumericUpDown sequanceChoiceNumber, NumericUpDown numeric1, NumericUpDown numeric2, NumericUpDown numeric3, NumericUpDown numeric4, NumericUpDown numeric5, NumericUpDown numeric6, NumericUpDown temperature)
         {
-            List<int> inputList = new List<int>();
-            int domainValue;
-            domainValue = GetParameter(domain1);
-            inputList.Add(domainValue);
-            domainValue = GetParameter(domain2);
-            inputList.Add(domainValue);
+            List<double> inputList = new List<double>();
+            double value;
+            value = GetSequanceParameter(sequanceChoiceNumber);
+            inputList.Add(value);
+            value = GetXyParameter(numeric1);
+            inputList.Add(value);
+            value = GetXyParameter(numeric2);
+            inputList.Add(value);
+            value = GetXyParameter(numeric3);
+            inputList.Add(value);
+            value = GetXyParameter(numeric4);
+            inputList.Add(value);
+            value = GetXyParameter(numeric5);
+            inputList.Add(value);
+            value = GetXyParameter(numeric6);
+            inputList.Add(value);
+            value = GetTemperatureParameter(temperature);
+            inputList.Add(value);
+
             InputValuesList = inputList;
         }
-        public int GetParameter(DomainUpDown sourceDomain)
+        public double GetTemperatureParameter(NumericUpDown sourceNumeric)
         {
-            if (int.TryParse(sourceDomain.Text, out int result))
-            { }
-            else
-            {   
-                MessageBox.Show($"Please check {sourceDomain.Name} value! It seems to be incorrect");
+            if (sourceNumeric.Value <= 0)
+            {
+                MessageBox.Show($@"Please check {sourceNumeric.Name} value! It seems to be less or equal to '0'");
+            } 
+            return decimal.ToDouble(sourceNumeric.Value);
+        }
+        public double GetSequanceParameter(NumericUpDown sourceNumeric)
+        {
+            if (!(sourceNumeric.Value==1||sourceNumeric.Value==2))
+            {
+                MessageBox.Show($@"Please check {sourceNumeric.Name} value, it may be set to '1' or '2' only");
+                return 0;
             }
-            return result;
+            else { return decimal.ToDouble(sourceNumeric.Value); }
+        }
+        public double GetXyParameter(NumericUpDown sourceNumeric)
+        {
+            if (!(sourceNumeric.Value == 0 || sourceNumeric.Value == 1))
+            {
+                return decimal.ToDouble(sourceNumeric.Value);
+            }
+            MessageBox.Show($@"Please check {sourceNumeric.Name} value, it may not be set to '0' nor '1'");
+            return 0;
         }
     }
 }

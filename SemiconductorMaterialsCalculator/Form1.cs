@@ -11,9 +11,9 @@ namespace SemiconductorMaterialsCalculator
         }
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            InputValues inputParameters = new InputValues(domainUpDown1, domainUpDown2);
-            
-            if (inputParameters.InputValuesList.Count==2)
+            InputValues inputParameters = new InputValues(SequanceChoiceNumber,aParamNumericUpDown, bParamNumericUpDown, xParamLay2, yParamLay2, xParamLay3, yParamLay3, TemperatureUpDown);
+
+            if (!inputParameters.InputValuesList.Contains(0))
             {
                 ChartCalculator newChartCalculator = new ChartCalculator(inputParameters.InputValuesList);
                 var arguments = newChartCalculator.ArgumentsOfChart;
@@ -24,19 +24,14 @@ namespace SemiconductorMaterialsCalculator
         }
         private void InterpolateButton_Click(object sender, EventArgs e)
         {
-            InputValues inputParameters = new InputValues(xGaInAsSbDomain, yGaInAsSbDomain);
+            InputValues inputParameters = new InputValues(SequanceChoiceNumber,xParamLay1, yParamLay1, xParamLay2, yParamLay2, xParamLay3, yParamLay3, TemperatureUpDown);
 
             if (!inputParameters.InputValuesList.Contains(0))
             {
-                var x = inputParameters.InputValuesList[0];
-                var y = inputParameters.InputValuesList[1];
-                BandStructureParametersNames paramNames = new BandStructureParametersNames();
-                foreach (var paramName in paramNames.ListOfBandStructureParameters)
-                {
-                    Interpolator interpolator = new Interpolator(paramName);
-                    var outcome = interpolator.InterpolateFourElements(x, y);
-                    MessageBox.Show($"{paramName}:{outcome.ToString()}");
-                }
+                LayerInterpolation newInterpolation = new LayerInterpolation();
+                var layer1Set = newInterpolation.InterpolateLayer(inputParameters,1);
+                var layer2Set = newInterpolation.InterpolateLayer(inputParameters, 2);
+                var layer3Set = newInterpolation.InterpolateLayer(inputParameters, 3);
             }
         }
     }

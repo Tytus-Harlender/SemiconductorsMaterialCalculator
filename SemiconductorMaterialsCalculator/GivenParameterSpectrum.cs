@@ -1,11 +1,9 @@
-﻿using System;
-
-
+﻿
 namespace SemiconductorMaterialsCalculator
 {
     public class GivenParameterSpectrum
     {
-        public String ParamName { get; set; }
+        public string ParamName { get; set; }
         public double GaSb { get; set; }
         public double GaAs { get; set; }
         public double InAs { get; set; }
