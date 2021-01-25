@@ -76,11 +76,16 @@
     <Compile Include="InputValues.cs" />
     <Compile Include="InterpolatedParametersSet.cs" />
     <Compile Include="Interpolator.cs" />
+    <Compile Include="LayerEnergiesCalculator.cs" />
+    <Compile Include="LayerEnergiesSet.cs" />
     <Compile Include="LayerInterpolation.cs" />
+    <Compile Include="LayersInterpolationSets.cs" />
     <Compile Include="ListOfBowingSpectrums.cs" />
     <Compile Include="ListOfParametersSpectrums.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrainEnergyModulesCalculator.cs" />
+    <Compile Include="StrainTensorCalculator.cs" />
     <Compile Include="VarschniFormulaModifier.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
