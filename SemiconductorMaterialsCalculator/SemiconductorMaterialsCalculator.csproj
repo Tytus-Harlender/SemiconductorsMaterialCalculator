@@ -66,12 +66,14 @@
     <Compile Include="ChartDraughtsClass.cs" />
     <Compile Include="ChartSeriesCreator.cs" />
     <Compile Include="CollectionTypeConverter.cs" />
+    <Compile Include="EnergyChartDataCalculator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FoundationGaAsParameters.cs" />
     <Compile Include="GivenParameterSpectrum.cs" />
     <Compile Include="InputValues.cs" />
     <Compile Include="InterpolatedParametersSet.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="LayerEnergiesCalculator.cs" />
     <Compile Include="LayerEnergiesSet.cs" />
     <Compile Include="LayerInterpolation.cs" />
+    <Compile Include="LayersEnergiesSets.cs" />
     <Compile Include="LayersInterpolationSets.cs" />
     <Compile Include="ListOfBowingSpectrums.cs" />
     <Compile Include="ListOfParametersSpectrums.cs" />

@@ -47,11 +47,11 @@ namespace SemiconductorMaterialsCalculator
 
         private double CalculateEnergyDeltaPlusVB()
         {
-            return 1/2*(EnergyDeltaVB-_deltaSO+Math.Pow(9*Math.Pow(EnergyDeltaVB,2)+2*EnergyDeltaVB+Math.Pow(_deltaSO,2),-1));
+            return 1/2*(EnergyDeltaVB-_deltaSO + Math.Pow(9*Math.Pow(EnergyDeltaVB,2)+2*EnergyDeltaVB+Math.Pow(_deltaSO,2),0.5));
         }
         private double CalculateEnergyDeltaMinusVB()
         {
-            return 1 / 2 * (EnergyDeltaVB - _deltaSO - Math.Pow(9 * Math.Pow(EnergyDeltaVB, 2) + 2 * EnergyDeltaVB + Math.Pow(_deltaSO, 2), -1));
+            return 1 / 2 * (EnergyDeltaVB - _deltaSO - Math.Pow(9 * Math.Pow(EnergyDeltaVB, 2) + 2 * EnergyDeltaVB + Math.Pow(_deltaSO, 2), 0.5));
         }
     }
 }

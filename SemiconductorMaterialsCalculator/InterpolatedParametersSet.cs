@@ -35,5 +35,9 @@ namespace SemiconductorMaterialsCalculator
             C_11 = outcomesList[12];
             C_12 = outcomesList[13];
         }
+        public InterpolatedParametersSet()
+        {
+            
+        }
     }
 }

@@ -6,10 +6,13 @@ namespace SemiconductorMaterialsCalculator
     public class InputValues
     {
         public List<double> InputValuesList { get; set; }
-        public InputValues(NumericUpDown sequanceChoiceNumber, NumericUpDown numeric1, NumericUpDown numeric2, NumericUpDown numeric3, NumericUpDown numeric4, NumericUpDown numeric5, NumericUpDown numeric6, NumericUpDown temperature)
+        public InputValues(NumericUpDown sequanceChoiceNumber, NumericUpDown numeric1, NumericUpDown numeric2, NumericUpDown numeric3, NumericUpDown numeric4, NumericUpDown numeric5, NumericUpDown numeric6, NumericUpDown temperature, NumericUpDown thicknessL1, NumericUpDown thicknessL2, NumericUpDown thicknessL3, NumericUpDown thicknessL4, NumericUpDown thicknessL5)
         {
             List<double> inputList = new List<double>();
             double value;
+
+            #region [0 to 7]InterpolationParameters
+
             value = GetSequanceParameter(sequanceChoiceNumber);
             inputList.Add(value);
             value = GetXyParameter(numeric1);
@@ -26,6 +29,23 @@ namespace SemiconductorMaterialsCalculator
             inputList.Add(value);
             value = GetTemperatureParameter(temperature);
             inputList.Add(value);
+
+            #endregion
+
+            #region [8 to 12]ThicknessValues
+            value = GetTemperatureParameter(thicknessL1);
+            inputList.Add(value);
+            value = GetTemperatureParameter(thicknessL2);
+            inputList.Add(value);
+            value = GetTemperatureParameter(thicknessL3);
+            inputList.Add(value);
+            value = GetTemperatureParameter(thicknessL4);
+            inputList.Add(value);
+            value = GetTemperatureParameter(thicknessL5);
+            inputList.Add(value);
+
+            #endregion
+
 
             InputValuesList = inputList;
         }

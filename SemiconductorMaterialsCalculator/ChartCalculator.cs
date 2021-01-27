@@ -6,14 +6,19 @@ namespace SemiconductorMaterialsCalculator
     {
         public List<double> ArgumentsOfChart { get; set; }
         public List<double> ValuesOfChart { get; set; }
-        public ChartCalculator(List<double> inputParameters)
+
+        #region Constructors
+        public ChartCalculator()
         {
-            var usedDomaine = DefineXDomaine(0, 20, 21);
-            var usedValues = CalculateListOfValues(usedDomaine, inputParameters[0], inputParameters[1]);
-            ArgumentsOfChart = usedDomaine;
-            ValuesOfChart = usedValues;
 
         }
+        public ChartCalculator(List<double> inputParameters)
+        {
+            ArgumentsOfChart = DefineXDomaine(0, 20, 21);
+            ValuesOfChart = CalculateListOfValues(ArgumentsOfChart, inputParameters[0], inputParameters[1]);
+        }
+        #endregion
+
         public List<double> CalculateListOfValues(List<double> givenDomain, double param1, double param2)
         {
             List<double> valuesOfY = new List<double>();
