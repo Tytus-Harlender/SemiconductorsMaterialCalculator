@@ -73,7 +73,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FoundationGaAsParameters.cs" />
+    <Compile Include="FoundationGaSbParameters.cs" />
     <Compile Include="GivenParameterSpectrum.cs" />
     <Compile Include="InputValues.cs" />
     <Compile Include="InterpolatedParametersSet.cs" />

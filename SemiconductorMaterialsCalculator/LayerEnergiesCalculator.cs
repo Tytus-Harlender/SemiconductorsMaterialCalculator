@@ -26,7 +26,7 @@
             LayerEnergies = newEnergiesSet;
             return LayerEnergies;
         }
-        public LayerEnergiesSet CalculateFoundationEnergiesSet(FoundationGaAsParameters foundationParameters)
+        public LayerEnergiesSet CalculateFoundationEnergiesSet(FoundationGaSbParameters foundationParameters)
         {
             StrainTensorCalculator newStrainTensorCalculator = new StrainTensorCalculator(_aE, foundationParameters);
             var epsilonParallel = newStrainTensorCalculator.EpsilonParallel;

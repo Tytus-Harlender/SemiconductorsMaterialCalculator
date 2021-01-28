@@ -6,7 +6,7 @@ namespace SemiconductorMaterialsCalculator
     public partial class Form1 : Form
     {
         private InputValues _currentInputValues;
-        private FoundationGaAsParameters _newFoundationParameters;
+        private FoundationGaSbParameters _newFoundationParameters;
         private LayersInterpolationSets _newLayersSets;
         private LayersEnergiesSets _newLayersEnergies;
         private LayerEnergiesSet _newFoundationEnergies;
@@ -35,7 +35,7 @@ namespace SemiconductorMaterialsCalculator
 
             if (!inputParameters.InputValuesList.Contains(0))
             {
-                FoundationGaAsParameters newFoundationParameters = new FoundationGaAsParameters();
+                FoundationGaSbParameters newFoundationParameters = new FoundationGaSbParameters();
                 LayerInterpolation newInterpolation = new LayerInterpolation();
                 var layer1Set = newInterpolation.InterpolateLayer(inputParameters,1);
                 var layer2Set = newInterpolation.InterpolateLayer(inputParameters, 2);
