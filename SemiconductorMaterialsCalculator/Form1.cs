@@ -79,5 +79,10 @@ namespace SemiconductorMaterialsCalculator
         {
 
         }
+
+        private void CreateInterChartButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -123,4 +123,11 @@ w warstwie. Potrzebne są trzy pary tych parametrów dla każdej
 z trzech wybranych cienkich warstw.
 Parametry x i y przyjmują wartości z zakresu &lt;0,1&gt;</value>
   </data>
+  <data name="label31.Text" xml:space="preserve">
+    <value>To create an interpolation chart please select 3 parameters:
+
+ 1- which thin layer you want to check (type '1','2' or '3')
+ 2- which interpolation parameter you want to fix (type '1' for 'x' or '2' for 'y')
+ 3- type the value of the fixed parameter</value>
+  </data>
 </root>
