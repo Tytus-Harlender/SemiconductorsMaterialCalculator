@@ -5,6 +5,22 @@ namespace SemiconductorMaterialsCalculator
 {
     public class LayerInterpolation
     {
+        #region PRIVATE FIELDS
+        private int _layerNumber;
+        private int _fixedParam;
+        private double _fixedValue;
+        #endregion
+
+        public LayerInterpolation()
+        {
+            
+        }
+        public LayerInterpolation(int layerNumber, int fixedParam, double fixedValue)
+        {
+            _layerNumber = layerNumber;
+            _fixedParam = fixedParam;
+            _fixedValue = fixedValue;
+        }
         public InterpolatedParametersSet InterpolateLayer(InputValues inputParameters, int layerNumber)
         {
             double x;
@@ -41,6 +57,35 @@ namespace SemiconductorMaterialsCalculator
             InterpolatedParametersSet layer1Set = new InterpolatedParametersSet(outcomesList);
             MessageBox.Show($"Layer {layerNumber} interpolation calculated");
             return layer1Set;
+        }
+
+        public InterpolatedParametersSet InterpolateLayerWithFixedParameter(InputValues inputParameters, double freeParamValue)
+        {
+            List<double> outcomesList = new List<double>();
+            var materialSwitch = inputParameters.InputValuesList[0];
+            var temperature = inputParameters.InputValuesList[7];
+            double x=0;
+            double y=0;
+            if (_fixedParam == 1)
+            {
+                x = _fixedValue;
+                y = freeParamValue;
+            }
+            else if (_fixedParam == 2)
+            {
+                y = _fixedValue;
+                x = freeParamValue;
+            }
+            
+            BandStructureParametersNames paramNames = new BandStructureParametersNames();
+            foreach (var paramName in paramNames.ListOfBandStructureParameters)
+            {
+                Interpolator interpolator = new Interpolator(paramName, temperature);
+                var outcome = interpolator.InterpolateFourElements(x, y, materialSwitch, _layerNumber);
+                outcomesList.Add(outcome);
+            }
+            InterpolatedParametersSet layerSet = new InterpolatedParametersSet(outcomesList);
+            return layerSet;
         }
     }
 }

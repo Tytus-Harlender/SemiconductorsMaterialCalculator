@@ -8,6 +8,7 @@ namespace SemiconductorMaterialsCalculator
         private InputValues _inputValuesFromUser;
         private LayersEnergiesSets _setsOfLayersEnergies;
         private LayerEnergiesSet _setOfFoundationLayerEnergies;
+        private double _resolution;
         public List<double> SeriesForEc { get; set; }
         public List<double> SeriesForEhh { get; set; }
         public List<double> SeriesForElh { get; set; }
@@ -17,6 +18,7 @@ namespace SemiconductorMaterialsCalculator
             _inputValuesFromUser = inputValuesFromUser;
             _setsOfLayersEnergies = setsOfLayersEnergies;
             _setOfFoundationLayerEnergies = setOfFoundationEnergies;
+            _resolution = inputValuesFromUser.InputValuesList[17];
             ArgumentsOfChart = DefineXDomaine();
             SeriesForEc = CalculateEcSeries();
             SeriesForEhh = CalculateEhhSeries();
@@ -89,27 +91,28 @@ namespace SemiconductorMaterialsCalculator
             var layer3Thickness = _inputValuesFromUser.InputValuesList[10];
             var layer4Thickness = _inputValuesFromUser.InputValuesList[11];
             var layer5Thickness = _inputValuesFromUser.InputValuesList[12];
-            for (int i = 0; i <= layer1Thickness;i++)
+            var totalThickness = AddAllThickness();
+            var step = totalThickness / _resolution;
+            for (double i = 0; i <= layer1Thickness; i=i + step)
             {
                 newEnergySeries.Add(y1);
             }
-            for (int i = Convert.ToInt32(layer1Thickness)+1; i <= layer1Thickness+layer2Thickness; i++)
+            for (double i = layer1Thickness + step; i <= layer1Thickness + layer2Thickness; i = i + step)
             {
                 newEnergySeries.Add(y2);
             }
-            for (int i = Convert.ToInt32(layer1Thickness + layer2Thickness) + 1; i <= layer1Thickness + layer2Thickness+layer3Thickness; i++)
+            for (double i = layer1Thickness + layer2Thickness + step; i <= layer1Thickness + layer2Thickness + layer3Thickness; i = i + step)
             {
                 newEnergySeries.Add(y3);
             }
-            for (int i = Convert.ToInt32(layer1Thickness + layer2Thickness + layer3Thickness) + 1; i <= layer1Thickness + layer2Thickness + layer3Thickness+layer4Thickness; i++)
+            for (double i = layer1Thickness + layer2Thickness + layer3Thickness + step; i <= layer1Thickness + layer2Thickness + layer3Thickness + layer4Thickness; i = i + step)
             {
                 newEnergySeries.Add(y4);
             }
-            for (int i = Convert.ToInt32(layer1Thickness + layer2Thickness + layer3Thickness + layer4Thickness) + 1; i <= layer1Thickness + layer2Thickness + layer3Thickness + layer4Thickness+layer5Thickness; i++)
+            for (double i = layer1Thickness + layer2Thickness + layer3Thickness + layer4Thickness + step; i <= totalThickness; i = i + step)
             {
                 newEnergySeries.Add(y5);
             }
-
             return newEnergySeries;
         }
     }
