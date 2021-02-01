@@ -74,7 +74,8 @@ namespace SemiconductorMaterialsCalculator
         {
             List<double> xDomaine = new List<double>();
             var totalThickness = AddAllThickness();
-            for (int i = 0; i <= totalThickness; i++)
+            var step = totalThickness / _resolution;
+            for (double i = 0; i <= totalThickness; i=i+step)
             {
                 xDomaine.Add(i);
             }

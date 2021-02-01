@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -117,21 +116,19 @@ namespace SemiconductorMaterialsCalculator
             {
                 using (TextWriter tw = new StreamWriter(@"C:\Users\Tytus\Desktop\SavedEnergiesChart.txt"))
                 {
-                    foreach (double d in _createdEnergySeries.ArgumentsOfChart)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdEnergySeries.SeriesForEc)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdEnergySeries.SeriesForEhh)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdEnergySeries.SeriesForElh)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdEnergySeries.SeriesForEsh)
-                    { tw.Write(d); }
-                    tw.WriteLine();
+                    for(int i= 1; i<= _createdEnergySeries.ArgumentsOfChart.Count-2;i++)
+                    {
+                        tw.Write(_createdEnergySeries.ArgumentsOfChart[i]);
+                        tw.Write("\t");
+                        tw.Write(_createdEnergySeries.SeriesForEc[i]);
+                        tw.Write("\t");
+                        tw.Write(_createdEnergySeries.SeriesForEhh[i]);
+                        tw.Write("\t");
+                        tw.Write(_createdEnergySeries.SeriesForElh[i]);
+                        tw.Write("\t");
+                        tw.Write(_createdEnergySeries.SeriesForEsh[i]);
+                        tw.WriteLine();
+                    }
                 }
                 MessageBox.Show(@"Energy chart data saved to path: C:\Users\Tytus\Desktop\SavedEnergiesChart.txt");
             }
@@ -146,51 +143,40 @@ namespace SemiconductorMaterialsCalculator
             {
                 using (TextWriter tw = new StreamWriter(@"C:\Users\Tytus\Desktop\SavedInterpolationChart.txt"))
                 {
-                    foreach (double d in _createdInterpolationSeries.ArgumentsList)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListA)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListEg)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListAlpha)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListBetha)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListDelta_so)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListMass_e)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListMass_hh)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListMass_lh)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListA_c)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListA_v)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListB)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListVBO)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListC_11)
-                    { tw.Write(d); }
-                    tw.WriteLine();
-                    foreach (double d in _createdInterpolationSeries.ListC_12)
-                    { tw.Write(d); }
-                    tw.WriteLine();
+                    for (int i = 1; i <= _createdInterpolationSeries.ArgumentsList.Count - 1; i++)
+                    {
+                        tw.Write(_createdInterpolationSeries.ArgumentsList[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListA[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListEg[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListAlpha[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListBetha[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListDelta_so[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListMass_e[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListMass_hh[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListMass_lh[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListA_c[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListA_v[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListB[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListVBO[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListC_11[i]);
+                        tw.Write("\t\t");
+                        tw.Write(_createdInterpolationSeries.ListC_12[i]);
+                        tw.Write("\t\t");
+                        tw.WriteLine();
+                    }
                 }
                 MessageBox.Show(@"Interpolation chart data saved to path: C:\Users\Tytus\Desktop\SavedInterpolationChart.txt");
             }
