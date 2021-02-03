@@ -76,6 +76,18 @@ namespace SemiconductorMaterialsCalculator
             return cartesianChart;
         }
 
+        public CartesianChart AddSeriesToExistingChart(CartesianChart cartesianChart, string seriesName, List<double> seriesToAdd)
+        {
+            var collectionConverter = new CollectionTypeConverter();
+            var values1 = collectionConverter.ConvertListToChartValuesCollection(seriesToAdd);
+            var newSeries = new LineSeries(values1)
+            {
+                Title = seriesName,
+                Values = values1
+            };
+            cartesianChart.Series.Add(newSeries);
+            return cartesianChart;
+        }
         public CartesianChart AddSeriesToChart(CartesianChart cartesianChart, string seriesName1, string seriesName2, string seriesName3, string seriesName4, List<double> seriesArguments, List<double> seriesValues1, List<double> seriesValues2, List<double> seriesValues3, List<double> seriesValues4)
         {
             var collectionConverter = new CollectionTypeConverter();

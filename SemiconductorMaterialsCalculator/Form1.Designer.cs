@@ -92,6 +92,9 @@
             this.interChartResolution = new System.Windows.Forms.NumericUpDown();
             this.EnergyChartResolution = new System.Windows.Forms.NumericUpDown();
             this.SaveChart2Button = new System.Windows.Forms.Button();
+            this.interpParamListBox = new System.Windows.Forms.CheckedListBox();
+            this.EnergyCompositionChartButton = new System.Windows.Forms.Button();
+            this.withStrainCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.SequanceChoiceNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayerIThicknessUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LayerIIThicknessUpDown)).BeginInit();
@@ -132,7 +135,7 @@
             this.label1.Location = new System.Drawing.Point(1681, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 16);
+            this.label1.Size = new System.Drawing.Size(89, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "parameter a:";
             // 
@@ -142,7 +145,7 @@
             this.label2.Location = new System.Drawing.Point(1694, 47);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.Size = new System.Drawing.Size(89, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "parameter b:";
             // 
@@ -161,7 +164,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(717, 154);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 16);
+            this.label4.Size = new System.Drawing.Size(136, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "x parameter(layer1):";
             // 
@@ -170,7 +173,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(717, 183);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 16);
+            this.label5.Size = new System.Drawing.Size(137, 17);
             this.label5.TabIndex = 12;
             this.label5.Text = "y parameter(layer1):";
             // 
@@ -179,7 +182,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(717, 212);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 16);
+            this.label6.Size = new System.Drawing.Size(136, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "x parameter(layer2):";
             // 
@@ -188,7 +191,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(717, 242);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 16);
+            this.label7.Size = new System.Drawing.Size(137, 17);
             this.label7.TabIndex = 14;
             this.label7.Text = "y parameter(layer2):";
             // 
@@ -209,7 +212,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.Location = new System.Drawing.Point(35, 41);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 24);
+            this.label10.Size = new System.Drawing.Size(148, 29);
             this.label10.TabIndex = 18;
             this.label10.Text = "I: cover layer";
             // 
@@ -219,7 +222,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label11.Location = new System.Drawing.Point(35, 156);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 24);
+            this.label11.Size = new System.Drawing.Size(152, 29);
             this.label11.TabIndex = 19;
             this.label11.Text = "II: thin layer 1";
             // 
@@ -229,7 +232,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label12.Location = new System.Drawing.Point(27, 378);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(125, 24);
+            this.label12.Size = new System.Drawing.Size(157, 29);
             this.label12.TabIndex = 20;
             this.label12.Text = "V: cover layer";
             // 
@@ -239,7 +242,7 @@
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label13.Location = new System.Drawing.Point(27, 215);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(122, 24);
+            this.label13.Size = new System.Drawing.Size(158, 29);
             this.label13.TabIndex = 21;
             this.label13.Text = "III: thin layer 2";
             // 
@@ -249,7 +252,7 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label14.Location = new System.Drawing.Point(29, 282);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(127, 24);
+            this.label14.Size = new System.Drawing.Size(161, 29);
             this.label14.TabIndex = 22;
             this.label14.Text = "IV: thin layer 3";
             // 
@@ -259,7 +262,7 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label15.Location = new System.Drawing.Point(322, 10);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 20);
+            this.label15.Size = new System.Drawing.Size(80, 25);
             this.label15.TabIndex = 23;
             this.label15.Text = "material";
             // 
@@ -268,7 +271,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(331, 41);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 16);
+            this.label16.Size = new System.Drawing.Size(44, 17);
             this.label16.TabIndex = 24;
             this.label16.Text = "GaSb";
             // 
@@ -277,7 +280,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(240, 82);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(204, 16);
+            this.label17.Size = new System.Drawing.Size(218, 17);
             this.label17.TabIndex = 25;
             this.label17.Text = "choose layer sequance (\'1\' or \'2\')";
             // 
@@ -286,7 +289,7 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(200, 156);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(151, 16);
+            this.label18.Size = new System.Drawing.Size(164, 17);
             this.label18.TabIndex = 26;
             this.label18.Text = "Al(x)Ga(1-x)As(y)Sb(1-y)";
             // 
@@ -295,7 +298,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(331, 382);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(43, 16);
+            this.label23.Size = new System.Drawing.Size(44, 17);
             this.label23.TabIndex = 31;
             this.label23.Text = "GaSb";
             // 
@@ -304,7 +307,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(370, 215);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(151, 16);
+            this.label19.Size = new System.Drawing.Size(164, 17);
             this.label19.TabIndex = 33;
             this.label19.Text = "Al(x)Ga(1-x)As(y)Sb(1-y)";
             // 
@@ -313,7 +316,7 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(371, 158);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(149, 16);
+            this.label20.Size = new System.Drawing.Size(163, 17);
             this.label20.TabIndex = 32;
             this.label20.Text = "Ga(x)In(1-x)As(y)Sb(1-y)";
             // 
@@ -322,7 +325,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(200, 286);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(151, 16);
+            this.label21.Size = new System.Drawing.Size(164, 17);
             this.label21.TabIndex = 35;
             this.label21.Text = "Al(x)Ga(1-x)As(y)Sb(1-y)";
             // 
@@ -331,7 +334,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(200, 218);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(149, 16);
+            this.label22.Size = new System.Drawing.Size(163, 17);
             this.label22.TabIndex = 34;
             this.label22.Text = "Ga(x)In(1-x)As(y)Sb(1-y)";
             // 
@@ -354,7 +357,7 @@
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label24.Location = new System.Drawing.Point(539, 10);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(110, 20);
+            this.label24.Size = new System.Drawing.Size(138, 25);
             this.label24.TabIndex = 39;
             this.label24.Text = "thickness [nm]";
             // 
@@ -438,7 +441,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(717, 311);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 16);
+            this.label8.Size = new System.Drawing.Size(137, 17);
             this.label8.TabIndex = 46;
             this.label8.Text = "y parameter(layer3):";
             // 
@@ -447,18 +450,18 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(717, 280);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(127, 16);
+            this.label9.Size = new System.Drawing.Size(136, 17);
             this.label9.TabIndex = 45;
             this.label9.Text = "x parameter(layer3):";
             // 
             // xParamLay3
             // 
-            this.xParamLay3.DecimalPlaces = 1;
+            this.xParamLay3.DecimalPlaces = 3;
             this.xParamLay3.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.xParamLay3.Location = new System.Drawing.Point(850, 279);
             this.xParamLay3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xParamLay3.Maximum = new decimal(new int[] {
@@ -477,12 +480,12 @@
             // 
             // yParamLay3
             // 
-            this.yParamLay3.DecimalPlaces = 1;
+            this.yParamLay3.DecimalPlaces = 3;
             this.yParamLay3.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.yParamLay3.Location = new System.Drawing.Point(850, 308);
             this.yParamLay3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.yParamLay3.Maximum = new decimal(new int[] {
@@ -505,7 +508,7 @@
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label25.Location = new System.Drawing.Point(717, 10);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(110, 17);
+            this.label25.Size = new System.Drawing.Size(130, 20);
             this.label25.TabIndex = 49;
             this.label25.Text = "temperature [K]:";
             // 
@@ -532,7 +535,7 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(371, 286);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(149, 16);
+            this.label26.Size = new System.Drawing.Size(163, 17);
             this.label26.TabIndex = 51;
             this.label26.Text = "Ga(x)In(1-x)As(y)Sb(1-y)";
             // 
@@ -541,7 +544,7 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(225, 128);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(78, 16);
+            this.label27.Size = new System.Drawing.Size(82, 17);
             this.label27.TabIndex = 52;
             this.label27.Text = "sequance 1";
             // 
@@ -550,18 +553,18 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(401, 128);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(78, 16);
+            this.label28.Size = new System.Drawing.Size(82, 17);
             this.label28.TabIndex = 53;
             this.label28.Text = "sequance 2";
             // 
             // yParamLay2
             // 
-            this.yParamLay2.DecimalPlaces = 1;
+            this.yParamLay2.DecimalPlaces = 3;
             this.yParamLay2.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.yParamLay2.Location = new System.Drawing.Point(850, 243);
             this.yParamLay2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.yParamLay2.Maximum = new decimal(new int[] {
@@ -580,12 +583,12 @@
             // 
             // xParamLay2
             // 
-            this.xParamLay2.DecimalPlaces = 1;
+            this.xParamLay2.DecimalPlaces = 3;
             this.xParamLay2.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.xParamLay2.Location = new System.Drawing.Point(850, 215);
             this.xParamLay2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xParamLay2.Maximum = new decimal(new int[] {
@@ -604,12 +607,12 @@
             // 
             // yParamLay1
             // 
-            this.yParamLay1.DecimalPlaces = 1;
+            this.yParamLay1.DecimalPlaces = 3;
             this.yParamLay1.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.yParamLay1.Location = new System.Drawing.Point(850, 183);
             this.yParamLay1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.yParamLay1.Maximum = new decimal(new int[] {
@@ -628,12 +631,12 @@
             // 
             // xParamLay1
             // 
-            this.xParamLay1.DecimalPlaces = 1;
+            this.xParamLay1.DecimalPlaces = 3;
             this.xParamLay1.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.xParamLay1.Location = new System.Drawing.Point(850, 154);
             this.xParamLay1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xParamLay1.Maximum = new decimal(new int[] {
@@ -703,7 +706,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(717, 75);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(378, 64);
+            this.label29.Size = new System.Drawing.Size(405, 68);
             this.label29.TabIndex = 62;
             this.label29.Text = resources.GetString("label29.Text");
             // 
@@ -724,7 +727,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(884, 10);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(147, 16);
+            this.label30.Size = new System.Drawing.Size(159, 17);
             this.label30.TabIndex = 64;
             this.label30.Text = "Energy chart resolution:";
             // 
@@ -739,9 +742,9 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1183, 221);
+            this.label31.Location = new System.Drawing.Point(1188, 212);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(434, 112);
+            this.label31.Size = new System.Drawing.Size(616, 136);
             this.label31.TabIndex = 66;
             this.label31.Text = resources.GetString("label31.Text");
             // 
@@ -750,7 +753,7 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(1188, 254);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(18, 16);
+            this.label32.Size = new System.Drawing.Size(20, 17);
             this.label32.TabIndex = 67;
             this.label32.Text = "1:";
             // 
@@ -759,7 +762,7 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(1298, 254);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(18, 16);
+            this.label33.Size = new System.Drawing.Size(20, 17);
             this.label33.TabIndex = 68;
             this.label33.Text = "2:";
             // 
@@ -768,7 +771,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(1411, 254);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(18, 16);
+            this.label34.Size = new System.Drawing.Size(20, 17);
             this.label34.TabIndex = 69;
             this.label34.Text = "3:";
             // 
@@ -818,12 +821,12 @@
             // 
             // InterChartUpDown3
             // 
-            this.InterChartUpDown3.DecimalPlaces = 1;
+            this.InterChartUpDown3.DecimalPlaces = 3;
             this.InterChartUpDown3.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            196608});
             this.InterChartUpDown3.Location = new System.Drawing.Point(1435, 252);
             this.InterChartUpDown3.Maximum = new decimal(new int[] {
             1,
@@ -841,7 +844,7 @@
             // 
             // CreateInterChartButton
             // 
-            this.CreateInterChartButton.Location = new System.Drawing.Point(1435, 423);
+            this.CreateInterChartButton.Location = new System.Drawing.Point(1414, 382);
             this.CreateInterChartButton.Name = "CreateInterChartButton";
             this.CreateInterChartButton.Size = new System.Drawing.Size(263, 41);
             this.CreateInterChartButton.TabIndex = 73;
@@ -854,15 +857,15 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1160, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(501, 64);
+            this.label3.Size = new System.Drawing.Size(542, 68);
             this.label3.TabIndex = 74;
             this.label3.Text = "Please choose number of points for interpolation chart and energy chart (resoluti" +
-    "on):\r\n\r\n\r\ninterpolation chart resolution                                        " +
-    "        energy chart resolution\r\n";
+    "on):\r\n\r\n\r\nenergy chart resolution                                               " +
+    " interpolation chart resolution\r\n";
             // 
             // interChartResolution
             // 
-            this.interChartResolution.Location = new System.Drawing.Point(1163, 116);
+            this.interChartResolution.Location = new System.Drawing.Point(1506, 121);
             this.interChartResolution.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -879,7 +882,7 @@
             // 
             // EnergyChartResolution
             // 
-            this.EnergyChartResolution.Location = new System.Drawing.Point(1459, 116);
+            this.EnergyChartResolution.Location = new System.Drawing.Point(1163, 121);
             this.EnergyChartResolution.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -896,7 +899,7 @@
             // 
             // SaveChart2Button
             // 
-            this.SaveChart2Button.Location = new System.Drawing.Point(1435, 464);
+            this.SaveChart2Button.Location = new System.Drawing.Point(1414, 423);
             this.SaveChart2Button.Name = "SaveChart2Button";
             this.SaveChart2Button.Size = new System.Drawing.Size(263, 39);
             this.SaveChart2Button.TabIndex = 77;
@@ -904,11 +907,59 @@
             this.SaveChart2Button.UseVisualStyleBackColor = true;
             this.SaveChart2Button.Click += new System.EventHandler(this.SaveChart2Button_Click);
             // 
+            // interpParamListBox
+            // 
+            this.interpParamListBox.FormattingEnabled = true;
+            this.interpParamListBox.Items.AddRange(new object[] {
+            "a",
+            "alpha",
+            "betha",
+            "Eg",
+            "VBO",
+            "delta_so",
+            "a_v",
+            "a_c",
+            "b",
+            "m_e",
+            "m_hh",
+            "m_lh",
+            "c_11",
+            "c_12"});
+            this.interpParamListBox.Location = new System.Drawing.Point(1697, 243);
+            this.interpParamListBox.Name = "interpParamListBox";
+            this.interpParamListBox.Size = new System.Drawing.Size(167, 174);
+            this.interpParamListBox.TabIndex = 78;
+            // 
+            // EnergyCompositionChartButton
+            // 
+            this.EnergyCompositionChartButton.Location = new System.Drawing.Point(997, 382);
+            this.EnergyCompositionChartButton.Name = "EnergyCompositionChartButton";
+            this.EnergyCompositionChartButton.Size = new System.Drawing.Size(274, 41);
+            this.EnergyCompositionChartButton.TabIndex = 79;
+            this.EnergyCompositionChartButton.Text = "Create Energy-CompositionChart";
+            this.EnergyCompositionChartButton.UseVisualStyleBackColor = true;
+            this.EnergyCompositionChartButton.Click += new System.EventHandler(this.EnergyCompositionChartButton_Click);
+            // 
+            // withStrainCheckBox
+            // 
+            this.withStrainCheckBox.AutoSize = true;
+            this.withStrainCheckBox.Checked = true;
+            this.withStrainCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.withStrainCheckBox.Location = new System.Drawing.Point(1277, 385);
+            this.withStrainCheckBox.Name = "withStrainCheckBox";
+            this.withStrainCheckBox.Size = new System.Drawing.Size(108, 38);
+            this.withStrainCheckBox.TabIndex = 80;
+            this.withStrainCheckBox.Text = "with material\r\n strain";
+            this.withStrainCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1901, 990);
+            this.ClientSize = new System.Drawing.Size(1899, 982);
+            this.Controls.Add(this.withStrainCheckBox);
+            this.Controls.Add(this.EnergyCompositionChartButton);
+            this.Controls.Add(this.interpParamListBox);
             this.Controls.Add(this.SaveChart2Button);
             this.Controls.Add(this.EnergyChartResolution);
             this.Controls.Add(this.interChartResolution);
@@ -974,7 +1025,7 @@
             this.Controls.Add(this.CreateButton);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1917, 1029);
-            this.MinimumSize = new System.Drawing.Size(1917, 1029);
+            this.MinimumSize = new System.Drawing.Size(1917, 1028);
             this.Name = "Form1";
             this.Text = "SMC - Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1069,6 +1120,9 @@
         private System.Windows.Forms.NumericUpDown interChartResolution;
         private System.Windows.Forms.NumericUpDown EnergyChartResolution;
         private System.Windows.Forms.Button SaveChart2Button;
+        private System.Windows.Forms.CheckedListBox interpParamListBox;
+        private System.Windows.Forms.Button EnergyCompositionChartButton;
+        private System.Windows.Forms.CheckBox withStrainCheckBox;
     }
 }
 

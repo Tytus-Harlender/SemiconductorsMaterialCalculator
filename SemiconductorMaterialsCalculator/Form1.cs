@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using LiveCharts;
 
 namespace SemiconductorMaterialsCalculator
 {
@@ -83,31 +85,100 @@ namespace SemiconductorMaterialsCalculator
             if (_newLayersSets != null)
             {
                 InterpolationChartCalculator newInterpolationChartCalculator = new InterpolationChartCalculator(_currentInputValues);
+                ChartSeriesCreator newChartCreator = new ChartSeriesCreator();
                 _createdInterpolationSeries = newInterpolationChartCalculator;
                 var argumentsOfChart = newInterpolationChartCalculator.ArgumentsList;
-                var seriesA = newInterpolationChartCalculator.ListA;
-                var seriesEg = newInterpolationChartCalculator.ListEg;
-                var seriesAlpha = newInterpolationChartCalculator.ListAlpha;
-                var seriesBetha = newInterpolationChartCalculator.ListBetha;
-                var seriesDelta_so = newInterpolationChartCalculator.ListDelta_so;
-                var seriesMass_e = newInterpolationChartCalculator.ListMass_e;
-                var seriesMass_hh = newInterpolationChartCalculator.ListMass_hh;
-                var seriesMass_lh = newInterpolationChartCalculator.ListMass_lh;
-                var seriesA_c = newInterpolationChartCalculator.ListA_c;
-                var seriesA_v = newInterpolationChartCalculator.ListA_v;
-                var seriesB = newInterpolationChartCalculator.ListB;
-                var seriesVBO = newInterpolationChartCalculator.ListVBO;
-                var seriesC_11 = newInterpolationChartCalculator.ListC_11;
-                var seriesC_12 = newInterpolationChartCalculator.ListC_12;
-
-                ChartSeriesCreator newChartCreator = new ChartSeriesCreator();
+                var setOfParamsForChart = interpParamListBox.CheckedIndices;
                 newChartCreator.ClearAllChart(cartesianChart2);
                 newChartCreator.FormateTheChart(cartesianChart2, argumentsOfChart, "not fixed parameter Values", "band parameters values");
-                newChartCreator.AddSeriesToChart(cartesianChart2, "A","Eg","Alpha","Betha","Delta_so","Mass_e","Mass_hh","Mass_lh","A_c","A_v","B","VBO","C_11","C_12",seriesA,seriesEg,seriesAlpha,seriesBetha,seriesDelta_so,seriesMass_e,seriesMass_hh,seriesMass_lh,seriesA_c,seriesA_v,seriesB,seriesVBO,seriesC_11,seriesC_12);
+                cartesianChart2.Series = new SeriesCollection {};
+                
+
+                foreach (int i in setOfParamsForChart)
+                {
+                    List<double> series1;
+                    string seriesName;
+                    switch (i)
+                    {
+                        case 0:
+                            series1 = newInterpolationChartCalculator.ListA;
+                            seriesName = "a";
+                            break;
+                        case 1:
+                            series1 = newInterpolationChartCalculator.ListAlpha;
+                            seriesName = "alpha";
+                            break;
+                        case 2:
+                            series1 = newInterpolationChartCalculator.ListBetha;
+                            seriesName = "betha";
+                            break;
+                        case 3:
+                            series1 = newInterpolationChartCalculator.ListEg;
+                            seriesName = "Eg";
+                            break;
+                        case 4:
+                            series1 = newInterpolationChartCalculator.ListVBO;
+                            seriesName = "VBO";
+                            break;
+                        case 5:
+                            series1 = newInterpolationChartCalculator.ListDelta_so;
+                            seriesName = "delta_so";
+                            break;
+                        case 6:
+                            series1 = newInterpolationChartCalculator.ListA_v;
+                            seriesName = "a_v";
+                            break;
+                        case 7:
+                            series1 = newInterpolationChartCalculator.ListA_c;
+                            seriesName = "a_c";
+                            break;
+                        case 8:
+                            series1 = newInterpolationChartCalculator.ListB;
+                            seriesName = "b";
+                            break;
+                        case 9:
+                            series1 = newInterpolationChartCalculator.ListMass_e;
+                            seriesName = "m_e";
+                            break;
+                        case 10:
+                            series1 = newInterpolationChartCalculator.ListMass_hh;
+                            seriesName = "m_hh";
+                            break;
+                        case 11:
+                            series1 = newInterpolationChartCalculator.ListMass_lh;
+                            seriesName = "m_lh";
+                            break;
+                        case 12:
+                            series1 = newInterpolationChartCalculator.ListC_11;
+                            seriesName = "c_11";
+                            break;
+                        case 13:
+                            series1 = newInterpolationChartCalculator.ListC_12;
+                            seriesName = "c_12";
+                            break;
+                        default:
+                            series1 = newInterpolationChartCalculator.ListC_12;
+                            seriesName = "default";
+                            break;
+                    }
+
+                    newChartCreator.AddSeriesToExistingChart(cartesianChart2, seriesName, series1);
+                }
             }
             else
             {
                 MessageBox.Show("Please calculate interpolation before you create interpolation chart");
+            }
+        }
+        private void EnergyCompositionChartButton_Click(object sender, EventArgs e)
+        {
+            if (_newLayersSets != null)
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("Please calculate interpolation before you create energy-composition chart");
             }
         }
         private void SaveChart1Button_Click(object sender, EventArgs e)
@@ -116,7 +187,7 @@ namespace SemiconductorMaterialsCalculator
             {
                 using (TextWriter tw = new StreamWriter(@"C:\Users\Tytus\Desktop\SavedEnergiesChart.txt"))
                 {
-                    for(int i= 1; i<= _createdEnergySeries.ArgumentsOfChart.Count-2;i++)
+                    for (int i = 1; i <= _createdEnergySeries.ArgumentsOfChart.Count - 2; i++)
                     {
                         tw.Write(_createdEnergySeries.ArgumentsOfChart[i]);
                         tw.Write("\t");

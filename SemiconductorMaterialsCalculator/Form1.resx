@@ -124,7 +124,8 @@ z trzech wybranych cienkich warstw.
 Parametry x i y przyjmują wartości z zakresu &lt;0,1&gt;</value>
   </data>
   <data name="label31.Text" xml:space="preserve">
-    <value>To create an interpolation chart please select 3 parameters:
+    <value>To create an interpolation chart please select 3 parameters (1,2,3) and a interpolated parameter
+ you want to see (on the right)
 
 
 

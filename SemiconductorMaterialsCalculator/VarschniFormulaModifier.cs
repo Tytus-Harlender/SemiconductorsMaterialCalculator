@@ -8,7 +8,7 @@ namespace SemiconductorMaterialsCalculator
         {
             var alphaSpectrum = ListOfParametersSpectrums.GetSpectrumByName("alpha");
             var bethaSpectrum = ListOfParametersSpectrums.GetSpectrumByName("betha");
-            egSpectrum.GaSb = CalculateVarschniModification(egSpectrum.GaSb,alphaSpectrum.GaSb,temperature,bethaSpectrum.GaSb);
+            egSpectrum.GaSb = CalculateVarschniModification(egSpectrum.GaSb,alphaSpectrum.GaSb, temperature,bethaSpectrum.GaSb);
             egSpectrum.GaAs = CalculateVarschniModification(egSpectrum.GaAs, alphaSpectrum.GaAs, temperature,bethaSpectrum.GaAs);
             egSpectrum.InAs = CalculateVarschniModification(egSpectrum.InAs, alphaSpectrum.InAs, temperature,bethaSpectrum.InAs);
             egSpectrum.InSb = CalculateVarschniModification(egSpectrum.InSb, alphaSpectrum.InSb, temperature,bethaSpectrum.InSb);
