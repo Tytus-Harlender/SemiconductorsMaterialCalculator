@@ -5,6 +5,11 @@
         private double _aE;
         private InterpolatedParametersSet _layerParametersSet;
         public LayerEnergiesSet LayerEnergies;
+
+        public LayerEnergiesCalculator()
+        {
+            _aE = 6.0959;
+        }
         public LayerEnergiesCalculator(double gaSbParameterAe)
         {
             _aE = gaSbParameterAe;

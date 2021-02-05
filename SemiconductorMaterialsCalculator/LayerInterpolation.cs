@@ -55,10 +55,8 @@ namespace SemiconductorMaterialsCalculator
                 outcomesList.Add(outcome);
             }
             InterpolatedParametersSet layer1Set = new InterpolatedParametersSet(outcomesList);
-            MessageBox.Show($"Layer {layerNumber} interpolation calculated");
             return layer1Set;
         }
-
         public InterpolatedParametersSet InterpolateLayerWithFixedParameter(InputValues inputParameters, double freeParamValue)
         {
             List<double> outcomesList = new List<double>();

@@ -34,26 +34,28 @@
                         z2 = InterpolateThreeElements(x, _parameterSpectrum.GaSb, _parameterSpectrum.InSb, _bowingSpectrum.GaInSb);
                         z3 = InterpolateThreeElements(y, _parameterSpectrum.InAs, _parameterSpectrum.InSb, _bowingSpectrum.InAsSb);
                         z4 = InterpolateThreeElements(y, _parameterSpectrum.GaAs, _parameterSpectrum.GaSb, _bowingSpectrum.GaAsSb);
-                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z3 + (1 - x) * z4)) / (x * (1 - x) + y * (1 - y));
+                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z4 + (1 - x) * z3)) / (x * (1 - x) + y * (1 - y));
                         return outputValue;
                     }
                     else
                     {
-                        z1 = InterpolateThreeElements(x, _parameterSpectrum.GaAs, _parameterSpectrum.GaAs, _bowingSpectrum.AlGaAs);
-                        z2 = InterpolateThreeElements(x, _parameterSpectrum.GaSb, _parameterSpectrum.GaSb, _bowingSpectrum.AlGaSb);
-                        z3 = InterpolateThreeElements(y, _parameterSpectrum.InAs, _parameterSpectrum.GaSb, _bowingSpectrum.GaAsSb);
-                        z4 = InterpolateThreeElements(y, _parameterSpectrum.GaAs, _parameterSpectrum.AlSb, _bowingSpectrum.AlAsSb);
-                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z3 + (1 - x) * z4)) / (x * (1 - x) + y * (1 - y));
+                        z1 = InterpolateThreeElements(x, _parameterSpectrum.AlAs, _parameterSpectrum.GaAs, _bowingSpectrum.AlGaAs);
+                        z2 = InterpolateThreeElements(x, _parameterSpectrum.AlSb, _parameterSpectrum.GaSb, _bowingSpectrum.AlGaSb);
+                        z3 = InterpolateThreeElements(y, _parameterSpectrum.GaAs, _parameterSpectrum.GaSb, _bowingSpectrum.GaAsSb);
+                        z4 = InterpolateThreeElements(y, _parameterSpectrum.AlAs, _parameterSpectrum.AlSb, _bowingSpectrum.AlAsSb);
+                        var licznik = (((x * (1.0 - x) * ((y * z1) + ((1.0 - y) * z2))) + (y * (1.0 - y) * ((x * z3) + ((1.0 - x) * z4)))));
+                        var mianownik = ((x * (1.0 - x)) + (y * (1.0 - y)));
+                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z4 + (1 - x) * z3)) / (x * (1 - x) + y * (1 - y));
                         return outputValue;
                     }
                 case 2:
                     if (layerNumber == 2)
                     {
-                        z1 = InterpolateThreeElements(x, _parameterSpectrum.GaAs, _parameterSpectrum.GaAs, _bowingSpectrum.AlGaAs);
-                        z2 = InterpolateThreeElements(x, _parameterSpectrum.GaSb, _parameterSpectrum.GaSb, _bowingSpectrum.AlGaSb);
-                        z3 = InterpolateThreeElements(y, _parameterSpectrum.InAs, _parameterSpectrum.GaSb, _bowingSpectrum.GaAsSb);
-                        z4 = InterpolateThreeElements(y, _parameterSpectrum.GaAs, _parameterSpectrum.AlSb, _bowingSpectrum.AlAsSb);
-                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z3 + (1 - x) * z4)) / (x * (1 - x) + y * (1 - y));
+                        z1 = InterpolateThreeElements(x, _parameterSpectrum.AlAs, _parameterSpectrum.GaAs, _bowingSpectrum.AlGaAs);
+                        z2 = InterpolateThreeElements(x, _parameterSpectrum.AlSb, _parameterSpectrum.GaSb, _bowingSpectrum.AlGaSb);
+                        z3 = InterpolateThreeElements(y, _parameterSpectrum.GaAs, _parameterSpectrum.GaSb, _bowingSpectrum.GaAsSb);
+                        z4 = InterpolateThreeElements(y, _parameterSpectrum.AlAs, _parameterSpectrum.AlSb, _bowingSpectrum.AlAsSb); 
+                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z4 + (1 - x) * z3)) / (x * (1 - x) + y * (1 - y));
                         return outputValue;
                     }
                     else
@@ -62,7 +64,7 @@
                         z2 = InterpolateThreeElements(x, _parameterSpectrum.GaSb, _parameterSpectrum.InSb, _bowingSpectrum.GaInSb);
                         z3 = InterpolateThreeElements(y, _parameterSpectrum.InAs, _parameterSpectrum.InSb, _bowingSpectrum.InAsSb);
                         z4 = InterpolateThreeElements(y, _parameterSpectrum.GaAs, _parameterSpectrum.GaSb, _bowingSpectrum.GaAsSb);
-                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z3 + (1 - x) * z4)) / (x * (1 - x) + y * (1 - y));
+                        outputValue = (x * (1 - x) * (y * z1 + (1 - y) * z2) + y * (1 - y) * (x * z4 + (1 - x) * z3)) / (x * (1 - x) + y * (1 - y));
                         return outputValue;
                     }
                 default:
@@ -71,7 +73,7 @@
         }
         public double InterpolateThreeElements(double c, double p1, double p2, double bowing)
         {
-            double z = c * p1 + (1 - c) * p2 - c * (1 - c) * bowing;
+            double z = c * p1 + (1.0 - c) * p2 - c * (1.0 - c) * bowing;
             return z;
         }
     }

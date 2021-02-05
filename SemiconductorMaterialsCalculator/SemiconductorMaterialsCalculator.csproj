@@ -67,6 +67,7 @@
     <Compile Include="ChartSeriesCreator.cs" />
     <Compile Include="CollectionTypeConverter.cs" />
     <Compile Include="EnergyChartDataCalculator.cs" />
+    <Compile Include="EnergyCompositionChartCalculator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

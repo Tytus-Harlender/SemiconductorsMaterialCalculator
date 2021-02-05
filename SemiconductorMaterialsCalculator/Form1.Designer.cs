@@ -932,7 +932,7 @@
             // 
             // EnergyCompositionChartButton
             // 
-            this.EnergyCompositionChartButton.Location = new System.Drawing.Point(997, 382);
+            this.EnergyCompositionChartButton.Location = new System.Drawing.Point(1018, 421);
             this.EnergyCompositionChartButton.Name = "EnergyCompositionChartButton";
             this.EnergyCompositionChartButton.Size = new System.Drawing.Size(274, 41);
             this.EnergyCompositionChartButton.TabIndex = 79;
@@ -945,7 +945,7 @@
             this.withStrainCheckBox.AutoSize = true;
             this.withStrainCheckBox.Checked = true;
             this.withStrainCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.withStrainCheckBox.Location = new System.Drawing.Point(1277, 385);
+            this.withStrainCheckBox.Location = new System.Drawing.Point(1298, 424);
             this.withStrainCheckBox.Name = "withStrainCheckBox";
             this.withStrainCheckBox.Size = new System.Drawing.Size(108, 38);
             this.withStrainCheckBox.TabIndex = 80;

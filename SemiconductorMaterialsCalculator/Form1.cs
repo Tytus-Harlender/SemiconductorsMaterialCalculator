@@ -45,6 +45,7 @@ namespace SemiconductorMaterialsCalculator
                 var layer1Set = newInterpolation.InterpolateLayer(inputParameters,1);
                 var layer2Set = newInterpolation.InterpolateLayer(inputParameters, 2);
                 var layer3Set = newInterpolation.InterpolateLayer(inputParameters, 3);
+                MessageBox.Show($"Thin layers interpolation calculated");
                 LayersInterpolationSets newLayersSets = new LayersInterpolationSets(layer1Set, layer2Set, layer3Set);
                 _newLayersSets = newLayersSets;
                 _newFoundationParameters = newFoundationParameters;
@@ -174,7 +175,16 @@ namespace SemiconductorMaterialsCalculator
         {
             if (_newLayersSets != null)
             {
-                
+                EnergyCompositionChartCalculator newEnergyCompositionChartCalculator = new EnergyCompositionChartCalculator(_currentInputValues);
+                ChartSeriesCreator newChartCreator = new ChartSeriesCreator();
+                var argumentsOfChart = newEnergyCompositionChartCalculator.ArgumentsList;
+                newChartCreator.ClearAllChart(cartesianChart2);
+                newChartCreator.FormateTheChart(cartesianChart2, argumentsOfChart, "not fixed parameter Values", "energy values");
+                cartesianChart2.Series = new SeriesCollection { };
+                newChartCreator.AddSeriesToExistingChart(cartesianChart2, "Ec",newEnergyCompositionChartCalculator.ListEc);
+                newChartCreator.AddSeriesToExistingChart(cartesianChart2, "Ehh", newEnergyCompositionChartCalculator.ListEhh);
+                newChartCreator.AddSeriesToExistingChart(cartesianChart2, "Elh", newEnergyCompositionChartCalculator.ListElh);
+                newChartCreator.AddSeriesToExistingChart(cartesianChart2, "Esh", newEnergyCompositionChartCalculator.ListEsh);
             }
             else
             {
